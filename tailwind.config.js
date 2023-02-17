@@ -31,6 +31,8 @@ module.exports = {
                 22: '5.5rem',
                 44: '11rem',
                 70: '17.5rem',
+                76: '19rem',
+                104: '26rem',
                 175: '43.75rem',
             },
             maxWidth: {
@@ -57,9 +59,6 @@ module.exports = {
 
     plugins: [
         require('@tailwindcss/line-clamp'),
-        require("@tailwindcss/forms")({
-            strategy: 'base', // only generate global styles
-            strategy: 'class', // only generate classes
-          }),
+        require('@tailwindcss/forms'),
     ],
 };
