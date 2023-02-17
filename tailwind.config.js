@@ -7,6 +7,8 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
+    safelist: ['bg-purple', 'bg-yellow', 'bg-green', 'bg-red', 'bg-gray-200'
+    ],
 
     theme: {
         extend: {
@@ -31,7 +33,7 @@ module.exports = {
                 175: '43.75rem',
             },
             maxWidth: {
-                custom: '62.5rem',
+                custom: '68.5rem',
             },
             boxShadow: {
                 card: '4px 4px 15px 0 rgba(36, 37, 38, 0.08)',
@@ -54,6 +56,9 @@ module.exports = {
 
     plugins: [
         require('@tailwindcss/line-clamp'),
-        require('@tailwindcss/forms'),
+        require("@tailwindcss/forms")({
+            strategy: 'base', // only generate global styles
+            strategy: 'class', // only generate classes
+          }),
     ],
 };
