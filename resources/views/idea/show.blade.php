@@ -17,25 +17,25 @@
             </div>
             <div class="w-full mx-2 md:mx-4">
                 <h4 class="text-xl font-semibold">
-                    <a href="#" class="hover:underline">A random title can go here</a>
+                    <a href="#" class="hover:underline">{{ $idea->title }}</a>
                 </h4>
                 <div class="text-gray-600 mt-3">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae nam ex, labore quas temporibus atque, ut quaerat sint cum perspiciatis illum excepturi amet eligendi recusandae. Dolores possimus doloribus nesciunt nihil!
+                    {{ $idea->description }}
                 </div>
 
                 <div class="flex flex-col md:flex-row md:items-center justify-between mt-6">
                     <div class="flex items-center text-xs text-gray-400 font-semibold space-x-2">
-                        <div class="hidden md:block font-bold text-gray-900">John Doe</div>
-                        <div>&bull;</div>
-                        <div>10 hours ago</div>
+                        <div class="hidden md:block font-bold text-gray-900">{{ $idea->user->name}}</div>
+                         <div class="hidden md:block">&bull;</div>
+                        <div>{{ $idea->created_at->diffForHumans() }}</div>
                         <div>&bull;</div>
                         <div>Category 1</div>
                         <div>&bull;</div>
                         <div class="text-gray-900">3 Comments</div>
                     </div>
                     <div
-                         class="flex items-center space-x-2 mt-4 md:mt-0"
-                         x-data="{ isOpen: false }"
+                        class="flex items-center space-x-2 mt-4 md:mt-0"
+                        x-data="{ isOpen: false }"
                      >
                         <div class="bg-gray-200 text-xxs font-bold uppercase leading-none rounded-full text-center w-28 h-7 py-2 px-4">Open</div>
                         <button
@@ -74,8 +74,8 @@
     <div class="buttons-container flex items-center justify-between mt-6">
         <div class="flex flex-col md:flex-row items-center space-x-4 md:ml-6">
             <div
-                 x-data="{ isOpen: false }"
-                 class="relative"
+                x-data="{ isOpen: false }"
+                class="relative"
              >
                 <button 
                     type="button"
@@ -86,11 +86,11 @@
                     Reply
                 </button>
                 <div
-                     class="absolute z-10 w-64 md:w-104 text-left font-semibold text-sm bg-white shadow-dialog rounded-xl mt-2"
-                     x-cloak
-                     x-show.transition.origin.top.left="isOpen"
-                     @click.away="isOpen = false"
-                     @keydown.escape.window="isOpen = false"
+                    class="absolute z-10 w-64 md:w-104 text-left font-semibold text-sm bg-white shadow-dialog rounded-xl mt-2"
+                    x-cloak
+                    x-show.transition.origin.top.left="isOpen"
+                    @click.away="isOpen = false"
+                    @keydown.escape.window="isOpen = false"
                  >
                     <form action="#" class="space-y-4 px-4 py-6">
                         <div>
@@ -137,7 +137,7 @@
                     x-transition.origin.top.left.duration.500ms
                     @click.away="isOpen = false"
                     @keydown.escape.window="isOpen = false" 
-                    class="absolute z-20 w-76 text-left font-semibold text-sm bg-white shadow-dialg rounded-xl mt-2"
+                    class="absolute z-20 w-64 md:w-76 text-left font-semibold text-sm bg-white shadow-dialog rounded-xl mt-2"
                 >
                     <form action="#" class="space-y-4 px-4 py-6">
                         <div class="space-y-2">
@@ -219,6 +219,7 @@
             </button>
         </div>
     </div> <!-- end buttons-container -->
+    
 
     <div class="comments-container relative space-y-6 md:ml-22 pt-4 my-8 mt-1">
         <div class="comment-container relative bg-white rounded-xl flex mt-4">
@@ -243,13 +244,13 @@
                             <div>10 hours ago</div>
                         </div>
                         <div
-                             class="flex items-center space-x-2"
-                             x-data="{ isOpen: false }"
-                         >
-                             <button
-                                 class="relative bg-gray-100 hover:bg-gray-200 border rounded-full h-7 transition duration-150 ease-in py-2 px-3"
-                                 @click="isOpen = !isOpen"
-                             >
+                            class="flex items-center space-x-2"
+                            x-data="{ isOpen: false }"
+                        >
+                            <button
+                                class="relative bg-gray-100 hover:bg-gray-200 border rounded-full h-7 transition duration-150 ease-in py-2 px-3"
+                                @click="isOpen = !isOpen"
+                            >
                                 <svg fill="currentColor" width="24" height="6"><path d="M2.97.061A2.969 2.969 0 000 3.031 2.968 2.968 0 002.97 6a2.97 2.97 0 100-5.94zm9.184 0a2.97 2.97 0 100 5.939 2.97 2.97 0 100-5.939zm8.877 0a2.97 2.97 0 10-.003 5.94A2.97 2.97 0 0021.03.06z" style="color: rgba(163, 163, 163, .5)"></svg>
                                 <ul
                                     class="absolute w-44 text-left font-semibold bg-white shadow-dialog rounded-xl z-10 py-3 md:ml-8 top-8 md:top-6 right-0 md:left-0"
@@ -266,7 +267,8 @@
                     </div>
                 </div>
             </div>
-        </div> <!-- end comment container -->       
+        </div> <!-- end comment container --> 
+
         <div class="comment-container relative bg-white rounded-xl flex mt-4">
             <div class="flex flex-col md:flex-row flex-1 px-4 py-6">
                 <div class="flex-none">
@@ -313,47 +315,47 @@
                 </div>
             </div>
         </div> <!-- end comment container -->
-            <div class="comment-container relative bg-white rounded-xl flex mt-4">
-                <div class="flex flex-col md:flex-row flex-1 px-4 py-6">
-                    <div class="flex-none">
-                        <a href="#">
-                            <img src="https://source.unsplash.com/200x200/?face&crop=face&v=2" alt="avatar" class="w-14 h-14 rounded-xl">
-                        </a>
+
+        <div class="comment-container relative bg-white rounded-xl flex mt-4">
+            <div class="flex flex-col md:flex-row flex-1 px-4 py-6">
+                <div class="flex-none">
+                    <a href="#">
+                        <img src="https://source.unsplash.com/200x200/?face&crop=face&v=2" alt="avatar" class="w-14 h-14 rounded-xl">
+                    </a>
+                </div>
+                <div class="w-full md:mx-4">
+                    {{-- <h4 class="text-xl font-semibold">
+                        <a href="#" class="hover:underline">A random title can go here</a>
+                    </h4> --}}
+                    <div class="text-gray-600 mt-3 line-clamp-3">
+                        Lorem ipsum dolor sit amet consectetur.
                     </div>
-                    <div class="w-full md:mx-4">
-                        {{-- <h4 class="text-xl font-semibold">
-                            <a href="#" class="hover:underline">A random title can go here</a>
-                        </h4> --}}
-                        <div class="text-gray-600 mt-3 line-clamp-3">
-                           Lorem ipsum dolor sit amet consectetur.
+                    <div class="flex items-center justify-between mt-6">
+                        <div class="flex items-center text-xs text-gray-400 font-semibold space-x-2">
+                            <div class="font-bold text-gray-900">John Doe</div>
+                            <div>&bull;</div>
+                            <div>10 hours ago</div>
                         </div>
-                        <div class="flex items-center justify-between mt-6">
-                            <div class="flex items-center text-xs text-gray-400 font-semibold space-x-2">
-                               <div class="font-bold text-gray-900">John Doe</div>
-                                <div>&bull;</div>
-                                <div>10 hours ago</div>
-                            </div>
-                            <div
-                             class="flex items-center space-x-2"
-                             x-data="{ isOpen: false }"
+                        <div
+                            class="flex items-center space-x-2"
+                            x-data="{ isOpen: false }"
+                        >
+                            <button
+                                class="relative bg-gray-100 hover:bg-gray-200 border rounded-full h-7 transition duration-150 ease-in py-2 px-3"
+                                @click="isOpen = !isOpen"
                             >
-                                <button
-                                    class="relative bg-gray-100 hover:bg-gray-200 border rounded-full h-7 transition duration-150 ease-in py-2 px-3"
-                                    @click="isOpen = !isOpen"
+                                <svg fill="currentColor" width="24" height="6"><path d="M2.97.061A2.969 2.969 0 000 3.031 2.968 2.968 0 002.97 6a2.97 2.97 0 100-5.94zm9.184 0a2.97 2.97 0 100 5.939 2.97 2.97 0 100-5.939zm8.877 0a2.97 2.97 0 10-.003 5.94A2.97 2.97 0 0021.03.06z" style="color: rgba(163, 163, 163, .5)"></svg>
+                                <ul
+                                    class="absolute w-44 text-left font-semibold bg-white shadow-dialog rounded-xl z-10 py-3 md:ml-8 top-8 md:top-6 right-0 md:left-0"
+                                    x-cloak
+                                    x-show.transition.origin.top.left="isOpen"
+                                    @click.away="isOpen = false"
+                                    @keydown.escape.window="isOpen = false"
                                 >
-                                    <svg fill="currentColor" width="24" height="6"><path d="M2.97.061A2.969 2.969 0 000 3.031 2.968 2.968 0 002.97 6a2.97 2.97 0 100-5.94zm9.184 0a2.97 2.97 0 100 5.939 2.97 2.97 0 100-5.939zm8.877 0a2.97 2.97 0 10-.003 5.94A2.97 2.97 0 0021.03.06z" style="color: rgba(163, 163, 163, .5)"></svg>
-                                    <ul
-                                        class="absolute w-44 text-left font-semibold bg-white shadow-dialog rounded-xl z-10 py-3 md:ml-8 top-8 md:top-6 right-0 md:left-0"
-                                        x-cloak
-                                        x-show.transition.origin.top.left="isOpen"
-                                        @click.away="isOpen = false"
-                                        @keydown.escape.window="isOpen = false"
-                                    >
-                                        <li><a href="#" class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">Mark as Spam</a></li>
-                                        <li><a href="#" class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">Delete Post</a></li>
-                                    </ul>
-                                </button>
-                            </div>
+                                    <li><a href="#" class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">Mark as Spam</a></li>
+                                    <li><a href="#" class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">Delete Post</a></li>
+                                </ul>
+                            </button>
                         </div>
                     </div>
                 </div>
