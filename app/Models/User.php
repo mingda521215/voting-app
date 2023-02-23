@@ -55,20 +55,24 @@ class User extends Authenticatable
     public function getAvatar()
     {
         $firstCharacter = $this->email[0];
-
-        if(is_numeric($firstCharacter)){
-            $integerToUse = ord(strtolower($firstCharacter)) - 21;
-        } else{
-            $integerToUse = ord(strtolower($firstCharacter)) - 96;
-        }
-
-        // $randomInteger = rand(1, 36);
-
+        $integerToUse = is_numeric($firstCharacter)
+            ? ord(strtolower($firstCharacter)) - 21
+            : ord(strtolower($firstCharacter)) - 96;
         return 'https://www.gravatar.com/avatar/'
             .md5($this->email)
             .'?s=200'
             .'&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-'
-            .$integerToUse
-            .'.png';
-    }
+             .$integerToUse
+             .'.png';
+     }
+
+     public function isAdmin()
+     {
+         return in_array($this->email, [
+             'jeffrey@laracasts.com',
+             'andre_madarang@hotmail.com',
+             'adrian@laracasts.com',
+             'wooweb@icloud.com'
+         ]);
+     }
 }
