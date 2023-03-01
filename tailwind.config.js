@@ -19,7 +19,7 @@ module.exports = {
                 black: colors.black,
                 white: colors.white,
                 gray: colors.gray,
-                'gray-background': '#f7f8fc',
+                'gray-background': '#cacdd9',
                 'blue': '#328af1',
                 'blue-hover': '#2879bd',
                 'yellow' : '#ffc73c',

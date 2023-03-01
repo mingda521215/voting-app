@@ -675,6 +675,12 @@ select {
 .relative {
   position: relative;
 }
+.inset-0 {
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
 .left-0 {
   left: 0px;
 }
@@ -955,6 +961,9 @@ select {
 .flex-col {
   flex-direction: column;
 }
+.items-end {
+  align-items: flex-end;
+}
 .items-center {
   align-items: center;
 }
@@ -1020,6 +1029,9 @@ select {
 .overflow-hidden {
   overflow: hidden;
 }
+.overflow-y-auto {
+  overflow-y: auto;
+}
 .rounded {
   border-radius: 0.25rem;
 }
@@ -1042,6 +1054,12 @@ select {
 .rounded-r-md {
   border-top-right-radius: 0.375rem;
   border-bottom-right-radius: 0.375rem;
+}
+.rounded-tl-xl {
+  border-top-left-radius: 0.75rem;
+}
+.rounded-tr-xl {
+  border-top-right-radius: 0.75rem;
 }
 .border {
   border-width: 1px;
@@ -1115,7 +1133,7 @@ select {
 }
 .bg-gray-background {
   --tw-bg-opacity: 1;
-  background-color: rgb(247 248 252 / var(--tw-bg-opacity));
+  background-color: rgb(202 205 217 / var(--tw-bg-opacity));
 }
 .bg-green {
   --tw-bg-opacity: 1;
@@ -1212,6 +1230,9 @@ select {
 .pb-3 {
   padding-bottom: 0.75rem;
 }
+.pb-4 {
+  padding-bottom: 1rem;
+}
 .pl-3 {
   padding-left: 0.75rem;
 }
@@ -1232,6 +1253,9 @@ select {
 }
 .pt-4 {
   padding-top: 1rem;
+}
+.pt-5 {
+  padding-top: 1.25rem;
 }
 .pt-6 {
   padding-top: 1.5rem;
@@ -1449,11 +1473,19 @@ select {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
 .duration-150 {
   transition-duration: 150ms;
 }
 .duration-200 {
   transition-duration: 200ms;
+}
+.duration-300 {
+  transition-duration: 300ms;
 }
 .duration-75 {
   transition-duration: 75ms;
@@ -1510,7 +1542,7 @@ select {
     content: "";
     width: 3px;
     height: calc(100% - 60px);
-    background: #f7f8fc;
+    background: #cacdd9;
 }
 
 .is-admin::before {
@@ -1745,6 +1777,14 @@ select {
     height: 5rem;
   }
 
+  .sm\:w-full {
+    width: 100%;
+  }
+
+  .sm\:max-w-lg {
+    max-width: 32rem;
+  }
+
   .sm\:max-w-md {
     max-width: 28rem;
   }
@@ -1773,9 +1813,17 @@ select {
     border-radius: 0.5rem;
   }
 
+  .sm\:p-6 {
+    padding: 1.5rem;
+  }
+
   .sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .sm\:pb-4 {
+    padding-bottom: 1rem;
   }
 
   .sm\:pt-0 {
