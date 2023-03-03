@@ -5,7 +5,7 @@
      @keydown.escape.window="isOpen = false"
      @custom-show-edit-modal.window="
         isOpen = true
-        $nextTick(() => $refs.title.focus())
+        $nextTick(() => $refs.confirmButton.focus())
     "
      x-init="
         window.livewire.on('ideaWasUpdated', () => {

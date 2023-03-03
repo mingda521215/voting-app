@@ -44,8 +44,7 @@ class IdeaIndex extends Component
             $this->hasVoted = true;
         }
     }
-
-    
+   
     public function render()
     {
         return view('livewire.idea-index');
