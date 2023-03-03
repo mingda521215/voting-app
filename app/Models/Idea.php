@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Idea extends Model
 {
-    use HasFactory, Sluggable;
+    use HasFactory; 
+    use Sluggable;
 
     const PAGINATION_COUNT = 10;
 
