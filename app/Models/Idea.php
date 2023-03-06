@@ -10,12 +10,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Idea extends Model
 {
-    use HasFactory; 
-    use Sluggable;
-
-    const PAGINATION_COUNT = 10;
+    use HasFactory, Sluggable;
 
     protected $guarded = [];
+    protected $perPage = 10;
 
     public function comments()
     {
