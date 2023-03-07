@@ -86,9 +86,9 @@ class IdeasIndex extends Component
                     ->where('user_id', auth()->id())
                     ->whereColumn('idea_id', 'ideas.id')
                 ])
-                 ->withCount('votes')
-                 ->withCount('comments')
-                 ->orderBy('id', 'desc')
+                ->withCount('votes')
+                ->withCount('comments')
+                ->orderBy('id', 'desc')
                 ->simplePaginate()
                 ->withQueryString(),
             'categories' => $categories,

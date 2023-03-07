@@ -7,7 +7,7 @@
 @endcan
 
 @auth
-        <livewire:mark-idea-as-spam :idea="$idea" />
+    <livewire:mark-idea-as-spam :idea="$idea" />
 @endauth
 
 @admin
@@ -16,4 +16,8 @@
 
 @auth
     <livewire:edit-comment />
+@endauth
+
+@auth
+    <livewire:delete-comment />
 @endauth
