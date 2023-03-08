@@ -15,7 +15,11 @@
     content: "";
     width: 3px;
     height: 100%;
-    background: #b3c4e0;
+    background: #b2c4e2;
+}
+
+.is-status-update.comment-container:last-child::after {
+    left: -41px;
 }
 
 /* horizontal line to the left of the comments */
@@ -26,15 +30,16 @@
     content: "";
     width: 23px;
     height: 3px;
-    background: #b3c4e0;
+    background: #b2c4e2;
     left: -40px;
 }
+
 /* remove last vertical line */
 .comment-container:last-child::after {
     position: absolute;
     display: block;
     top: 60px;
-    left: -38px;
+    left: -40px;
     content: "";
     width: 3px;
     height: calc(100% - 60px);
@@ -55,7 +60,7 @@
 }
 
 .is-status-update {
-    border-width: 2px;
+    border-width: 1px;
     border-image-source: linear-gradient(266deg, #21c8f6 98%, #637bff -52%);
     border-image-slice: 1;
     background-image: linear-gradient(to bottom, #ffffff, #ffffff), linear-gradient(266deg, #21c8f6 98%, #637bff -52%);
