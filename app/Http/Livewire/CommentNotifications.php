@@ -6,22 +6,42 @@
 
  class CommentNotifications extends Component
  {
-     public $notifications;
+    const NOTIFICATION_THRESHOLD = 20;
+    public $notifications;
+    public $notificationCount;
+     public $isLoading;
 
-     protected $listeners = ['getNotifications'];
+    protected $listeners = ['getNotifications'];
 
-     public function mount()
-     {
-         $this->notifications = collect([]);
+    public function mount()
+    {
+        $this->notifications = collect([]);
+        $this->isLoading = true;
+         $this->getNotificationCount();
      }
 
-     public function getNotifications()
+     public function getNotificationCount()
      {
-         $this->notifications = auth()->user()->unreadNotifications;
-     }
+         $this->notificationCount = auth()->user()->unreadNotifications()->count();
 
-     public function render()
-     {
-         return view('livewire.comment-notifications');
-     }
- }
+         if ($this->notificationCount > self::NOTIFICATION_THRESHOLD) {
+             $this->notificationCount = self::NOTIFICATION_THRESHOLD.'+';
+         }
+    }
+
+    public function getNotifications()
+    {
+        $this->notifications = auth()->user()
+            ->unreadNotifications()
+            ->latest()
+            ->take(self::NOTIFICATION_THRESHOLD)
+            ->get();
+
+        $this->isLoading = false;
+    }
+
+    public function render()
+    {
+        return view('livewire.comment-notifications');
+    }
+}
