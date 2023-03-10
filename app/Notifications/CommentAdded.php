@@ -32,7 +32,7 @@ class CommentAdded extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail', 'database'];
+        return ['database'];
     }
 
     /**
@@ -42,13 +42,13 @@ class CommentAdded extends Notification
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
-     {
-         return (new MailMessage)
-             ->subject('Laracasts Voting: A comment was posted on your idea')
-             ->markdown('emails.comment-added', [
-                 'comment' => $this->comment,
-             ]);
-     }
+    {
+        return (new MailMessage)
+            ->subject('Laracasts Voting: A comment was posted on your idea')
+            ->markdown('emails.comment-added', [
+                'comment' => $this->comment,
+            ]);
+    }
 
     /**
      * Get the array representation of the notification.

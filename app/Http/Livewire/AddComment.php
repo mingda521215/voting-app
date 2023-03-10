@@ -43,8 +43,6 @@ class AddComment extends Component
         $this->emit('commentWasAdded', 'Comment was posted!');
     }
 
-
-
     public function render()
     {
         return view('livewire.add-comment');
