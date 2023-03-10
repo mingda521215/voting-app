@@ -16,7 +16,15 @@
     "Your Idea": "您的想法",
     "Are you sure you want to delete this comment? This action cannot be undone.": "你確定要刪除此評論嗎？ 本次操作將無法撤消。",
     "Delete Comment": "刪除評論",
-    "Delete": "刪除"
+    "Delete": "刪除",
+    "Cancel": "取消",
+    "Considering": "考慮中",
+    "In Progress": "進行中",
+    "Implemented": "已落實",
+    "Closed": "已關閉",
+    "All Ideas": "全部意見",
+    "Open": "開放"
+
 
 
 }

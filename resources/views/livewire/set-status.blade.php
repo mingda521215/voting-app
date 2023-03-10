@@ -29,31 +29,31 @@
                 <div>
                     <label class="inline-flex items-center">
                         <input wire:model="status" type="radio" class="bg-gray-200 text-gray-600 border-none" name="status" value="1" checked>
-                        <span class="ml-2">Open</span>
+                        <span class="ml-2">{{ __('Open') }}</span>
                     </label>
                 </div>
                 <div>
                     <label class="inline-flex items-center">
                         <input wire:model="status" type="radio" class="bg-gray-200 text-purple border-none" name="status" value="2">
-                        <span class="ml-2">Considering</span>
+                        <span class="ml-2">{{ __('Considering') }}</span>
                     </label>
                 </div>
                 <div>
                     <label class="inline-flex items-center">
                         <input wire:model="status" type="radio" class="bg-gray-200 text-yellow border-none" name="status" value="3">
-                        <span class="ml-2">In Progress</span>
+                        <span class="ml-2">{{ __('In Progress') }}</span>
                     </label>
                 </div>
                 <div>
                     <label class="inline-flex items-center">
                         <input wire:model="status" type="radio" class="bg-gray-200 text-green border-none" name="status" value="4">
-                        <span class="ml-2">Implemented</span>
+                        <span class="ml-2">{{ __('Implemented') }}</span>
                     </label>
                 </div>
                 <div>
                     <label class="inline-flex items-center">
                         <input wire:model="status" type="radio" class="bg-gray-200 text-red border-none" name="status" value="5">
-                        <span class="ml-2">Closed</span>
+                        <span class="ml-2">{{ __('Closed') }}</span>
                     </label>
                 </div>
             </div>
