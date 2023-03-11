@@ -28,7 +28,7 @@ class SetStatus extends Component
         }
 
         if ($this->idea->status_id === (int) $this->status) {
-            $this->emit('statusWasUpdatedError', 'Status is the same!');
+            $this->emit('statusWasUpdatedError', '{{ __("Status is the same!") }}');
             return;
         }
 
@@ -43,13 +43,13 @@ class SetStatus extends Component
             'user_id' => auth()->id(),
             'idea_id' => $this->idea->id,
             'status_id' => $this->status,
-            'body' => $this->comment ?? 'No comment was added.',
+            'body' => $this->comment ?? '{{ __("No comment was added.") }}',
             'is_status_update' => true,
         ]);
 
         $this->reset('comment');
 
-        $this->emit('statusWasUpdated', 'Status was updated successfully!');
+        $this->emit('statusWasUpdated', '{{ __("Status was updated successfully!") }}');
     }
     
     public function render()

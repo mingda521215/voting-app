@@ -8,20 +8,20 @@
                 <img src="{{ $comment->user->getAvatar() }}" alt="avatar" class="w-14 h-14 rounded-xl">
             </a>
             @if ($comment->user->isAdmin())
-                <div class="md:text-center uppercase text-blue text-xxs font-bold mt-1">Admin</div>
+                <div class="md:text-center uppercase text-blue text-xxs font-bold mt-1">{{ __('Admin') }}</div>
             @endif
         </div>
         <div class="w-full md:mx-4">
             <div class="text-gray-600">
                 @admin
                     @if ($comment->spam_reports > 0)
-                        <div class="text-red mb-2">Spam Reports: {{ $comment->spam_reports }}</div>
+                        <div class="text-red mb-2">{{ __('Spam Reports:') }} {{ $comment->spam_reports }}</div>
                     @endif
                 @endadmin
 
                 @if ($comment->is_status_update)
                     <h4 class="text-xl font-semibold mb-3">
-                        Status Changed to "{{ $comment->status->name }}"
+                        {{ __('Status Changed to') }} "{{ $comment->status->name }}"
                     </h4>
                 @endif
 
@@ -70,7 +70,7 @@
                                             "
                                             class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3"
                                         >
-                                            Edit Comment
+                                            {{ __('Edit Comment') }}
                                         </a>
                                     </li>
                                 @endcan
@@ -85,7 +85,7 @@
                                             "
                                             class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3"
                                         >
-                                            Delete Comment
+                                            {{ __('Delete Comment') }}
                                         </a>
                                     </li>
                                 @endcan
@@ -99,7 +99,7 @@
                                             "
                                             class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3"
                                         >
-                                            Mark as Spam
+                                            {{ __('Mark as Spam') }}
                                         </a>
                                     </li>
 
@@ -114,7 +114,7 @@
                                                 "
                                                 class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3"
                                             >
-                                                Not Spam
+                                                {{ __('Not Spam') }}
                                             </a>
                                         </li>
                                     @endif

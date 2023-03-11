@@ -28,7 +28,7 @@
          $this->comment->spam_reports = 0;
          $this->comment->save();
 
-         $this->emit('commentWasMarkedAsNotSpam', 'Comment spam counter was reset!');
+         $this->emit('commentWasMarkedAsNotSpam', '{{ __("Comment spam counter was reset!") }}');
      }
 
      public function render()

@@ -30,7 +30,7 @@ class IdeasIndex extends Component
 
     public function mount()
     {
-        $this->status = request()->status ?? 'All';
+        $this->status = request()->status ?? '{{ __("All") }}';
     }
     
     public function updatingCategory()
